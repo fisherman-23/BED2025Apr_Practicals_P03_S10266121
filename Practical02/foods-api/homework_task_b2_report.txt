@@ -1,0 +1,25 @@
+
+1. app.use(express.json()):
+    This is used to parse incoming JSON payloads in the request body. It allows the API to handle and process JSON data sent by clients, making it easier to work with structured data.
+
+2. req.body:
+    This object contains data sent by the client in the body of the HTTP request. It is commonly used in POST and PUT requests to send data to the server, such as creating or updating resources.
+
+3. req.query:
+    This object holds query string parameters sent in the URL of the request. It is often used to filter or modify the behavior of a request, such as searching or sorting data, in the format ?data=something
+
+4. req.params.id:
+    This is a specific parameter extracted from the URL path. It is typically used to identify a resource, such as retrieving, updating, or deleting a specific item by its unique identifier. 
+    in the format home/:id, user query it with home/123, the value of 123 would be accessed via req.params.id
+
+
+Significance of HTTP Methods in the API:
+    These methods ensure that the client will be able to perform most of its tasks. Since these methods directly map to CRUD (create, read, update, delete)
+    Which are the foundations in RESTFul service architecture.
+
+- 200 OK: Indicates that the request was successful, and the server has returned the expected response.
+- 201 Created: Indicates that a new resource has been successfully created on the server.
+- 400 Bad Request: Indicates that the server could not process the request due to invalid syntax or missing required data.
+- 404 Not Found: Indicates that the requested resource could not be found on the server.
+- 500 Internal Server Error: Indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+

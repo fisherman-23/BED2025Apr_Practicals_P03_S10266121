@@ -1,0 +1,13 @@
+Reflection:
+    Write a brief reflection (2-3 sentences) on the concepts you learned during Part A of the practical:
+        I learnt that REST architecture is one of the most popular way to handle APIs, because it is simple and stateless, meaning the server does not store any data between request, making
+        it extremely scalable. It uses HTTP with is a standard communication protocol, therefore being able to access simple but very powerful http methods like GET, POST, PUT, DELETE. No challenges faced
+        as it is extremely straightforward, with HTTP methods tying into the CRUD concept.
+
+Q&A:
+    Answer the following questions based on your understanding:
+        Why use POST for creating resources and PUT for updating?
+            POST is a method used to submit data to a server, while PUT updates a existing value. If POST was used instead, it would create
+            an entirely new object. If PUT was used in place of POST, it would not create a new object.
+        What status code should be returned when attempting to update a non-existent resource?
+            Error 404 usually, or if the API endpoint allows, PUT will create a new object
