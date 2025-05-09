@@ -1,0 +1,16 @@
+Look at the code in the final app.js file (where all logic is in routes and no validation). 
+How easy or difficult is it to read and understand what's happening in each route handler compared to when 
+the database logic was in separate functions?
+It is challenging to read the codes as it is all in one place without abstraction. It makes it slightly harder
+to understand what each route does, identify bugs or make changes. If it is separated into different functions
+and modules, it would be better.
+
+
+If you found a bug in how books are created in the database, which version of app.js would make it 
+easiest to isolate and fix that bug?
+The version of app.js where the database logic is separated into function and modules would be better, it improves clarity
+and makes it easier to track down bugs.
+
+
+Did you face any challenges while implementing this practical?
+No.
