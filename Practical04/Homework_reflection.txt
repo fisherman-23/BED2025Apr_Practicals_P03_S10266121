@@ -1,0 +1,30 @@
+Task 1: Reflection on Refactoring
+
+Reflect on the process of refactoring the API code into the MVC structure by answering the following questions:
+
+    What were the main changes you made to refactor the code into MVC architecture? Describe how you moved code between files and folders.
+        Originally, in Practical 03, everything was in app.js, now I split it into 3 parts, a model, a controller and the main app.js. Middleware is
+        also added to validate parameters before passing it on. 
+    What challenges did you face during the refactoring process?
+        Not much, it was straightforward, maybe one challenge is trying to identify which piece of code goes where.
+    How does the MVC structure change the way you think about adding new features or modifying existing ones compared to the previous non-MVC structure?
+        It is much easier to add new features, as well as maintaining it and fixing bugs. Since the different responsibilities are cleanly separated into models
+        , views and controllers, so i do not have to search through one large file to understand how it works. 
+    In what specific ways do you think the MVC version is more organized or easier to understand and maintain than the previous version where all logic was in app.js?
+        Developers can more easily work on it together, as multiple people can work on different responsibilities rather than one large codebase. Would run into
+        less conflict problems.
+    Explain how separating concerns (putting database logic in the Model and request handling in the Controller) makes the code better from a development perspective.
+        Improved readability, better debugging as the code can be more easily isolated, easier testing and faster development.
+Task 2: Reflecting on Robustness & Security
+
+Reflect on the impact of validation, error handling, and parameterized queries by answering the following questions:
+
+    How does implementing input validation middleware make the API more reliable and user-friendly? Provide an example of invalid input that your validation would now handle.
+        It is more reliable as our system will catch these invalid inputs that can cause errors or crash, and we can use it to provide the user's with a user friendly message
+        to ask them to edit their inputs. Example of invalid input is example@@.com
+    Explain in your own words how parameterized queries prevent SQL injection attacks. Why is this approach fundamentally more secure than building SQL query strings by concatenating variable data?
+        It separated the SQL code from the data input. The database will treat these values as data, and not an executable string query. It eliminates the possibility
+        of treating user provided data as part of the SQL command, preventing injection attempts.
+    Consider a potential security risk for an API (other than SQL injection, e.g., brute-force attacks, exposing sensitive data in responses). How might robust error handling (like not showing detailed error messages to the client) help mitigate such a risk?
+        Brute force attacks, attackers can repeatedly try to guess credentials or other info. If detailed error messages are sent, like Incorrect username, incorrect password for username, username 'admin' does not exist,
+        then attackers will be able to use this to narrow down their search.
