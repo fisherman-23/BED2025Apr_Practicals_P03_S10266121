@@ -64,7 +64,7 @@ async function deleteBook(req, res) {
     if (!deletedBook) {
       return res.status(404).json({ error: "Book not found" });
     }
-    res.json({ message: "Book deleted successfully" });
+    res.status(204).json({ message: "Book deleted successfully" });
   } catch (error) {
     console.error("Controller error:", error);
     res.status(500).json({ error: "Error deleting book" });

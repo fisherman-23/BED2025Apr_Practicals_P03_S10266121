@@ -64,7 +64,7 @@ async function deleteStudent(req, res) {
     if (!deletedStudent) {
       return res.status(404).json({ error: "Student not found" });
     }
-    res.json({ message: "Student deleted successfully" });
+    res.status(204).json({ message: "Student deleted successfully" });
   } catch (error) {
     console.error("Controller error:", error);
     res.status(500).json({ error: "Error deleting student" });

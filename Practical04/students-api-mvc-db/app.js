@@ -1,6 +1,7 @@
 const express = require("express");
 const sql = require("mssql");
 const dotenv = require("dotenv");
+const path = require("path");
 // Load environment variables
 dotenv.config();
 
@@ -17,6 +18,9 @@ const port = process.env.PORT || 3000;
 // Middleware (Parsing request bodies)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Middleware for serving static files
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes for students
 app.get("/students", studentController.getAllStudents);
