@@ -7,10 +7,16 @@ const path = require("path");
 dotenv.config();
 
 const bookController = require("./controllers/bookController");
+const userController = require("./controllers/userController");
 const {
   validateBook,
   validateBookId,
 } = require("./middlewares/bookValidation"); // import Book Validation Middleware
+
+const {
+  validateUser,
+  validateUserId,
+} = require("./middlewares/userValidation"); // import User Validation Middleware
 
 // Create Express app
 const app = express();
@@ -38,6 +44,15 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
+// Routes for users
+// Important for the following route to be defined before the others
+app.get("/users/search", userController.searchUsers);
+app.get("/users/with-books", userController.getUsersWithBooks);
+app.post("/users", validateUser, userController.createUser); // Use validateUser middleware
+app.get("/users", userController.getAllUsers);
+app.get("/users/:id", validateUserId, userController.getUserById); // Use validateUserId middleware
+app.put("/users/:id", validateUserId, validateUser, userController.updateUser); // Use validateUserId and validateUser middleware
+app.delete("/users/:id", validateUserId, userController.deleteUser); // Use validateUserId middleware
 // Graceful shutdown
 process.on("SIGINT", async () => {
   console.log("Server is gracefully shutting down");
