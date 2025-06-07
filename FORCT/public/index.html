@@ -1,0 +1,44 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      margin: 5px;
+      padding: 8px;
+    }
+    .book {
+      margin: 10px 0;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Book Manager</h1>
+
+  <h2>Add a New Book</h2>
+  <input type="text" id="title" placeholder="Title" />
+  <input type="text" id="author" placeholder="Author" />
+  <button onclick="addBook()">Add Book</button>
+
+  <h2>All Books</h2>
+  <div id="book-list"></div>
+
+  <h2>Delete a Book</h2>
+  <input type="number" id="delete-id" placeholder="Book ID to delete" />
+  <button onclick="deleteBook()">Delete</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
