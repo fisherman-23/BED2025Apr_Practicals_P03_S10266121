@@ -17,9 +17,25 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json()); // Parses incoming JSON requests and puts parsed data in req.body
+//This middleware reads incoming requests with JSON payloads (like API calls sending JSON data).
+//It parses that JSON and puts the result into req.body.
+//Example: If client sends { "name": "Alice" }, you can access it as req.body.name in your route.
+
 app.use(express.urlencoded({ extended: true })); // Parses URL-encoded data (from forms)
+//This middleware parses URL-encoded form data — the kind browsers send from HTML forms.
+//The option { extended: true } means it can handle rich objects and arrays in the form data.
+//Example: If a form sends name=Alice&age=30, you access it as req.body.name and req.body.age.
+//Rich objects here means you can send nested data structures via form fields, like:
+
 app.use(express.static(path.join(__dirname, "public"))); // Serves static files from the "public" folder
+//This serves static files like HTML, CSS, JavaScript, images, etc. from the public folder.
+//When the browser requests /style.css, Express will look for public/style.css and serve it.
+//Useful for serving frontend assets directly without extra route handlers.
+
+// __dirname is a Node.js global variable that holds the absolute path of the directory where the current JavaScript file is located. It’s useful when you need to work with files or directories relative to your script’s location.
+
 // This setup allows you to handle JSON, form data, and serve frontend assets (e.g., HTML, CSS, JS).
+//
 
 app.get("/books", controller.getAllBooks);
 app.get("/books/:id", validateBookId, controller.getBookById);

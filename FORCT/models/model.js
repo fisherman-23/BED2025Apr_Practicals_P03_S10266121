@@ -20,6 +20,8 @@ async function getAllBooks() {
     // SQL query to select all books with specific columns
     const query = "SELECT id, title, author FROM Books";
 
+    // We use await before connection.request().query(query) because the .query() method is asynchronous and returns a Promise, not the actual data. Without await, you'd get a Promise object (Promise { <pending> }) instead of the query result, and trying to access result.recordset would throw an error. By using await, the function pauses execution until the database responds, and only then assigns the actual result (an object containing the recordset) to the result variable. This ensures the result is safe to work with. Since JavaScript is asynchronous and database calls take time, await is necessary to handle the delay and avoid working with incomplete or invalid data. To use await, the function must be marked as async, which you're already doing.
+
     // Execute the query using a request object
     const result = await connection.request().query(query);
 
