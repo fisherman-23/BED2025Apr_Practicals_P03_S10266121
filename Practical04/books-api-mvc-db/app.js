@@ -2,6 +2,8 @@ const express = require("express");
 const sql = require("mssql");
 const dotenv = require("dotenv");
 const path = require("path");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json"); // Import generated spec
 
 // Load environment variables
 dotenv.config();
